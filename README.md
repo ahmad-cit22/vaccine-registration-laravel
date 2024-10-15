@@ -1,5 +1,7 @@
 # 🏥 COVID Vaccine Registration System
 
+![APP Screenshot](images/project-screenshot.png)
+
 A simple COVID vaccine registration system built using **Laravel 10**. This application allows users to register for the COVID vaccine, select a vaccination center, and check their vaccination status using their National ID (NID). Vaccination schedules are managed on a "first come, first serve" basis, and users are notified via email the night before their scheduled vaccination date.
 
 ## ✨ Features
