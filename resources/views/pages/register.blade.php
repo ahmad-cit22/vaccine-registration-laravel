@@ -19,7 +19,7 @@
                                 vaccine now with us. It's fast, easy, and secure.
                             </p>
                         </div>
-                        <form action="{{ route('register.store') }}" method="POST" novalidate>
+                        <form action="{{ route('register.store') }}" method="POST">
                             @csrf
                             <div class="divide-y divide-gray-200">
                                 <div class="pt-8 text-base leading-6 space-y-6 text-gray-700 sm:text-lg sm:leading-7">

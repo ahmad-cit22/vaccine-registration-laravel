@@ -11,6 +11,10 @@ class Vaccination extends Model
 
     protected $guarded = ['id'];
 
+    protected $casts = [
+        'scheduled_date' => 'datetime',
+    ];
+
     public function user()
     {
         return $this->belongsTo(User::class);

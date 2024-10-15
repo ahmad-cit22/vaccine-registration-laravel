@@ -22,7 +22,7 @@ class UserFactory extends Factory
         return [
             'name' => fake()->name(),
             'email' => fake()->unique()->safeEmail(),
-            'nid' => $this->faker->unique()->numerify('#########'),
+            'nid' => $this->faker->unique()->numerify('##########'),
         ];
     }
 }

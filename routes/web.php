@@ -22,5 +22,5 @@ Route::get('/', function () {
 Route::get('/register', [RegistrationController::class, 'create'])->name('register');
 Route::post('/register', [RegistrationController::class, 'store'])->name('register.store');
 
-Route::get('/search/view', [VaccinationController::class, 'search_view'])->name('search.view');
-Route::get('/search', [VaccinationController::class, 'search'])->name('search');
+Route::get('/search', [VaccinationController::class, 'search_view'])->name('search.view');
+Route::post('/search', [VaccinationController::class, 'search'])->name('search');
