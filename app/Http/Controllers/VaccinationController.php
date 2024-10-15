@@ -14,47 +14,6 @@ class VaccinationController extends Controller
         return view('pages.search');
     }
 
-    // public function search(Request $request)
-    // {
-    //     $status = null;
-    //     $date = null;
-
-    //     if ($request->nid != null) {
-    //         $request->validate(['nid' => 'min_digits:10']);
-
-    //         $user = User::with('vaccination')->where('nid', $request->nid)->first();
-
-    //         if (!$user) {
-    //             $status = 'Not registered';
-    //             return view('pages.search', compact('status', 'date'));
-    //         }
-
-    //         $vaccination = $user->vaccination;
-
-    //         if (!$vaccination) {
-    //             $status = 'Not registered';
-
-    //             return view('pages.search', compact('status', 'date'));
-    //         }
-
-    //         if ($vaccination->status === 'Scheduled') {
-    //             $status = 'Not registered';
-    //             $date = $vaccination->scheduled_date;
-
-    //             return view('pages.search', compact('status', 'date'));
-    //         }
-
-    //         if ($vaccination->scheduled_date < now()) {
-    //             $vaccination->status = 'Vaccinated';
-    //             $vaccination->save();
-    //         }
-
-    //         $status = $vaccination->status;
-    //     }
-
-    //     return view('pages.search', compact('status', 'date'));
-    // }
-
     public function search(Request $request)
     {
         if (!$request->nid || strlen($request->nid) < 10) {

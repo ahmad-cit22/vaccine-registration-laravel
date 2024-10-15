@@ -19,7 +19,7 @@
                             </p>
                         </div>
 
-                        <form id="searchForm" action="{{ route('search') }}" method="GET" novalidate>
+                        <form id="searchForm" action="{{ route('search') }}" method="GET">
                             <div class="divide-y divide-gray-200">
                                 <div class="pt-8 text-base leading-6 space-y-4 text-gray-700 sm:text-lg sm:leading-7">
 
@@ -49,7 +49,9 @@
             </div>
         </div>
     </main>
+@endsection
 
+@push('custom-js')
     <script>
         const searchForm = document.getElementById('searchForm');
         const resultDiv = document.getElementById('result');
@@ -118,7 +120,7 @@
                     Swal.fire({
                         icon: "error",
                         title: "Oops!",
-                        text: `An unexpected error occurred. Please try again.`,
+                        text: `An unexpected error occurred. Please try again or contact with us.`,
                     });
                 }
             } catch (error) {
@@ -130,4 +132,4 @@
             }
         });
     </script>
-@endsection
+@endpush
