@@ -46,17 +46,14 @@ class VaccinationController extends Controller
     {
         if ($vaccination->scheduled_date == null) {
             return [
-                'status' => 'Not scheduled',
-                'message' => 'You are registered but your vaccination is not scheduled yet. We will notify you via email when scheduled.',
+                'status' => $vaccination->status,
+                'message' => 'You are registered but your vaccination is not scheduled yet. We will notify you via email soon when scheduled.',
             ];
         }
 
         if ($vaccination->scheduled_date == today()) {
-            $vaccination->status = 'Vaccinated';
-            $vaccination->save();
-
             return [
-                'status' => 'Scheduled',
+                'status' => $vaccination->status,
                 'message' =>
                 'Your vaccination is scheduled on today at ' . $vaccination->vaccineCenter->name . ' center.',
             ];
@@ -65,12 +62,12 @@ class VaccinationController extends Controller
             $vaccination->save();
 
             return [
-                'status' => 'Vaccinated',
+                'status' => $vaccination->status,
                 'message' => 'You have been vaccinated on ' . $vaccination->scheduled_date->format('F j, Y') . ' at ' . $vaccination->vaccineCenter->name . ' center.',
             ];
         } else {
             return [
-                'status' => 'Scheduled',
+                'status' => $vaccination->status,
                 'message' => 'Your vaccination is scheduled on ' . $vaccination->scheduled_date->format('F j, Y') . ' at ' . $vaccination->vaccineCenter->name . ' center.',
             ];
         }
