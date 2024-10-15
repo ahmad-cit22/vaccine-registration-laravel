@@ -7,7 +7,7 @@ use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Notifications\Messages\MailMessage;
 use Illuminate\Notifications\Notification;
 
-class VaccinationReminderNotification extends Notification implements ShouldQueue
+class VaccinationScheduledNotification extends Notification implements ShouldQueue
 {
     use Queueable;
 
@@ -26,11 +26,12 @@ class VaccinationReminderNotification extends Notification implements ShouldQueu
     public function toMail($notifiable)
     {
         return (new MailMessage)
-            ->subject('Vaccination Reminder')
+            ->subject('Vaccination Scheduled')
             ->line('Hope you are doing well.')
-            ->line("This is a reminder for tomorrow's vaccination appointment.")
+            ->line('Your vaccination has been scheduled successfully.')
             ->line('Scheduled Date: ' . $this->vaccination->scheduled_date->format('F j, Y'))
-            ->line('Vaccination Center: ' . $this->vaccination->vaccineCenter->name)
-            ->line('Please visit the center tomorrow for vaccination.');
+            ->line('Vaccine Center: ' . $this->vaccination->vaccineCenter->name)
+            ->line('Please visit the center on your scheduled date for vaccination.')
+            ->line('Thank you for your registration!');
     }
 }

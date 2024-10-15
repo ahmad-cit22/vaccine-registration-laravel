@@ -21,8 +21,12 @@ class ScheduleVaccination extends Command
 
     public function handle()
     {
-        $this->scheduler->schedule();
-        $this->info('Vaccinations have been scheduled.');
+        try {
+            $this->scheduler->schedule();
+            $this->info('Vaccinations have been scheduled.');
+        } catch (\Exception $e) {
+            $this->error('An error occurred while scheduling vaccinations: ' . $e->getMessage());
+        }
     }
 }
 

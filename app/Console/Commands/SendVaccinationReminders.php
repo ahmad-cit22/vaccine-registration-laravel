@@ -23,7 +23,7 @@ class SendVaccinationReminders extends Command
             $vaccination->user->notify(new VaccinationReminderNotification($vaccination));
         }
 
-        $this->info('Reminders sent successfully.');
+        $this->info('Vaccination Reminders sent successfully.');
     }
 }
 
