@@ -11,7 +11,7 @@ class VaccinationScheduler
     public function schedule()
     {
         $today = Carbon::now();
-        $nextAvailableDate = $today->copy()->nextWeekday(); // Get the next available weekday
+        $nextAvailableDate = $today->copy()->nextWeekday();
         $centers = VaccineCenter::all();
 
         foreach ($centers as $center) {

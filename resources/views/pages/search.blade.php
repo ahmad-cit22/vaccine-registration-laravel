@@ -9,11 +9,11 @@
                 <div
                     class="absolute inset-0 bg-gradient-to-r from-green-300 to-green-600 shadow-lg transform -skew-y-6 sm:skew-y-0 sm:-rotate-6 sm:rounded-3xl">
                 </div>
-                <div class="relative px-7 py-5 bg-white shadow-lg sm:rounded-3xl sm:px-16 sm:py-10">
+                <div class="relative px-7 py-10 bg-white shadow-lg sm:rounded-3xl sm:px-16 sm:py-10">
                     <div class="max-w-sm mx-auto">
 
                         <div class="max-w-lg mx-auto">
-                            <h1 class="text-3xl font-bold text-center text-green-900 mb-6">Check Your Vaccination Status!
+                            <h1 class="text-3xl font-bold text-center text-green-900 mb-6">Check Vaccination Status
                             </h1>
                             <p class="text-md text-center text-gray-700 mb-6">
                                 Stay informed about your vaccination. Enter your NID below & see your vaccination
@@ -23,7 +23,7 @@
 
                         <form id="searchForm">
                             <div class="divide-y divide-gray-200">
-                                <div class="py-8 text-base leading-6 space-y-4 text-gray-700 sm:text-lg sm:leading-7">
+                                <div class="pt-8 text-base leading-6 space-y-4 text-gray-700 sm:text-lg sm:leading-7">
 
                                     <div class="relative">
                                         <input autocomplete="off" id="nid" name="nid" type="text"
@@ -36,7 +36,7 @@
 
                                     <div class="relative">
                                         <button type="submit"
-                                            class="bg-green-500 text-white rounded-md px-2 py-1">Search</button>
+                                            class="bg-green-500 text-white rounded-md px-2 py-1 hover:bg-green-600 ease-in-out duration-300">Search</button>
                                     </div>
                                 </div>
                             </div>

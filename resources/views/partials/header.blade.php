@@ -1,7 +1,10 @@
 <header class="bg-white shadow-md z-50">
     <div class="container mx-auto px-6 py-4 flex justify-between items-center">
         <a href="{{ route('home') }}" class="">
-            <h1 class="text-3xl font-extrabold text-green-600 hover:text-green-700">GETVACC</h1>
+            <h1 class="text-3xl font-extrabold text-green-600 hover:text-green-700 flex">
+                <img class="max-w-xs mr-1" width="40" src="{{ asset('images/logo/logo.png') }}" alt="getvacc-logo">
+                GETVACC
+            </h1>
         </a>
 
         <button id="menu-toggle" class="lg:hidden focus:outline-none" onclick="toggleMenu()">
@@ -14,7 +17,7 @@
         <!-- Navbar for desktop -->
         <nav class="hidden lg:flex space-x-6 items-center">
             <a href="{{ route('home') }}"
-                class="text-gray-700 font-medium hover:text-green-600 ease-in-out duration-300 {{ request()->routeIs('home') ? 'text-green-600' : '' }}">Home</a>
+                class="text-gray-700 font-medium hover:text-green-600 ease-in-out duration-300 {{ request()->routeIs('register') ? 'text-green-600' : '' }}">Home</a>
             <a href="{{ route('search.view') }}"
                 class="text-gray-700 font-medium hover:text-green-600 ease-in-out duration-300 {{ request()->routeIs('search.view') ? 'text-green-600' : '' }}">Check
                 Status</a>

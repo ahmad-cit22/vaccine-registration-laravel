@@ -6,7 +6,9 @@ use App\Http\Requests\RegistrationRequest;
 use App\Models\User;
 use App\Models\Vaccination;
 use App\Models\VaccineCenter;
+use Exception;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class RegistrationController extends Controller
 {
@@ -18,24 +20,27 @@ class RegistrationController extends Controller
 
     public function store(RegistrationRequest $request)
     {
-        // $request->validate([
-        //     'nid' => 'required|unique:users,nid',
-        //     'name' => 'required|string',
-        //     'email' => 'required|email|unique:users,email',
-        //     'vaccine_center_id' => 'required|exists:vaccine_centers,id',
-        // ]);
+        DB::beginTransaction();
 
-        $user = User::create([
-            'nid' => $request->nid,
-            'name' => $request->name,
-            'email' => $request->email,
-        ]);
+        try {
+            $user = User::create([
+                'nid' => $request->nid,
+                'name' => $request->name,
+                'email' => $request->email,
+            ]);
 
-        Vaccination::create([
-            'user_id' => $user->id,
-            'vaccine_center_id' => $request->vaccine_center_id,
-        ]);
+            Vaccination::create([
+                'user_id' => $user->id,
+                'vaccine_center_id' => $request->vaccine_center_id,
+            ]);
 
-        return redirect()->route('search');
+            DB::commit();
+
+            return redirect()->route('search.view')->with('success', 'Registered successfully!');
+        } catch (Exception $e) {
+            DB::rollBack();
+
+            return redirect()->back()->with('error', 'Registration failed due to some error! Please try again or contact with us.');
+        }
     }
 }

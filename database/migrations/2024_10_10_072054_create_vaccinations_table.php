@@ -16,7 +16,7 @@ return new class extends Migration
             $table->foreignId('user_id')->nullable()->constrained()->setNullOnDelete();
             $table->foreignId('vaccine_center_id')->constrained()->cascadeOnDelete();
             $table->date('scheduled_date')->nullable();
-            $table->string('status')->default('Not scheduled')->comment('Not scheduled', 'Scheduled', 'Vaccinated');
+            $table->string('status')->default('Not scheduled')->comment('Not scheduled, Scheduled, Vaccinated');
             $table->timestamps();
         });
     }

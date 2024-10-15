@@ -12,7 +12,7 @@ class Kernel extends ConsoleKernel
      */
     protected function schedule(Schedule $schedule): void
     {
-        $schedule->command('vaccination:schedule')->dailyAt('20:00');
+        $schedule->command('vaccination:schedule')->dailyAt('19:00');
         $schedule->command('vaccination:send-reminders')->dailyAt('21:00');
     }
 
