@@ -32,8 +32,8 @@ To run this project, you need to have the following installed:
 1. **Clone the Repository**
 
    ```bash
-   git clone https://github.com/yourusername/covid-vaccine-registration.git
-   cd covid-vaccine-registration
+   git clone https://github.com/ahmad-cit22/vaccine-registration-laravel.git
+   cd vaccine-registration-laravel
    ```
 
 2. **Install Dependencies**
@@ -97,11 +97,11 @@ To run this project, you need to have the following installed:
 
 - **Database Indexing**: The NID column in the users table has been indexed to optimize the search functionality. This significantly reduces search time.
 - **AJAX for Search**: The vaccination status search uses AJAX to load the result dynamically without a page reload, improving user experience and reducing server load.
-- **Queued Email Jobs**: The email notifications are sent asynchronously by implementing queued jobs to handle email sending process in the background which will improve the performance of scheduling & reminder process.
+- **Queued Email Jobs**: The email notifications are sent asynchronously by implementing queued jobs that handle email sending processes in the background which improves the performance of scheduling & reminder-sending process.
 
 ### Optimization Notes
 
-- **Additional Caching**: If given more time, I would implement caching mechanisms for the search and registration pages to reduce database hits and further optimize performance.
+- **Additional Caching**: If given more time, I would implement caching mechanisms for the search and registration pages to reduce database hits and further optimizing performance.
 
 ---
 
@@ -109,26 +109,28 @@ To run this project, you need to have the following installed:
 
 If an additional requirement for sending SMS notifications along with the email notifications is introduced, the following changes would be required:
 
-1. **SMS Service Integration**: Add a third-party SMS service like Twilio or Nexmo.
-2. **Notification Logic Update**: Extend the notification logic in the `SendVaccinationReminder` job to send SMS in addition to emails. This would require:
-   - Adding a method in the job class for sending SMS.
+1. **SMS Service Integration**: Adding a third-party SMS service like Twilio or Nexmo.
+2. **Notification Logic Update**: Extending the notification logic in the `SendVaccinationReminder` command to send SMS in addition to emails. This would require:
+   - Adding a method in the command class for sending SMS.
    - Ensuring that each user’s phone number is captured during registration and stored in the database.
-3. **Environment Configuration**: Add SMS API credentials to the `.env` file, such as `TWILIO_SID`, `TWILIO_AUTH_TOKEN`, and `TWILIO_FROM`.
+3. **Environment Configuration**: Adding SMS API credentials to the `.env` file, such as `TWILIO_SID`, `TWILIO_AUTH_TOKEN`, and `TWILIO_FROM`.
 
-Here is a brief outline of how I could implement it in the `SendVaccinationReminder` job:
+Here is a brief outline of how I could implement it in the `SendVaccinationReminder` command class:
 
 ```php
-// Adding SMS sending logic inside the job
+// Adding SMS sending logic inside the command class
+
 public function handle()
 {
     // Existing email sending logic goes here
 
-    // I'd put SMS sending logic here
+    // I'd put the SMS sending logic here
     if (config('services.twilio.enabled')) {
         $this->sendSms($user->phone, $smsMessage);
     }
 }
 
+// Sending sms function
 protected function sendSms($phone, $message)
 {
     $twilio = new Client(config('services.twilio.sid'), config('services.twilio.token'));
