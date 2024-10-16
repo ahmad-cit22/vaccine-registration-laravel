@@ -115,7 +115,7 @@ This project includes various tests to ensure the correct & smooth functionality
 
 ### 2. VaccinationSearchTest
 - **Purpose:** Tests the vaccination status checking/searching functionality.
-- **Description:** Verifies that users can search for their vaccination status using their respective NID. It checks the correct responses for registered, scheduled and non-registered users.
+- **Description:** Verifies that users can search for their vaccination status using their respective NID. Besides checking input validation process, it also ensures the correct responses for registered, non-registered, scheduled, not scheduled & vaccinated users.
 
 ### 3. VaccinationSchedulerTest
 - **Purpose:** Tests the scheduling of vaccinations.
