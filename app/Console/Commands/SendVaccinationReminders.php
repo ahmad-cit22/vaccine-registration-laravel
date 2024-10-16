@@ -16,7 +16,7 @@ class SendVaccinationReminders extends Command
     public function handle()
     {
         try {
-            $tomorrow = Carbon::now()->addDay()->toDateString();
+            $tomorrow = Carbon::tomorrow();
 
             $vaccinations = Vaccination::where('scheduled_date', $tomorrow)->get();
 

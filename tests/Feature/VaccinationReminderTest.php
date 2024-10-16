@@ -20,7 +20,7 @@ class VaccinationReminderTest extends TestCase
         $center = VaccineCenter::factory()->create();
         $user = User::factory()->create();
 
-        Vaccination::factory()->create([
+        $vaccination = Vaccination::factory()->create([
             'user_id' => $user->id,
             'vaccine_center_id' => $center->id,
             'scheduled_date' => Carbon::tomorrow(),
