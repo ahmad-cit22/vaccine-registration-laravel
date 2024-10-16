@@ -16,10 +16,10 @@ class VaccinationController extends Controller
 
     public function search(Request $request)
     {
-        if (!$request->nid || strlen($request->nid) < 10) {
+        if (!$request->nid || !is_numeric($request->nid) || strlen($request->nid) < 10) {
             return response()->json([
                 'status' => 'validationFailed',
-                'message' => 'You must enter a valid NID number containing at least 10 digits.',
+                'message' => 'You must enter a valid NID number containing numbers (at least 10 digits).',
             ]);
         }
 

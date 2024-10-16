@@ -22,7 +22,7 @@ class RegistrationRequest extends FormRequest
     public function rules()
     {
         return [
-            'nid' => 'required|unique:users,nid|min_digits:10',
+            'nid' => 'required|numeric|unique:users,nid|min_digits:10',
             'name' => 'required|string',
             'email' => 'required|email|unique:users,email',
             'vaccine_center_id' => 'required|exists:vaccine_centers,id',

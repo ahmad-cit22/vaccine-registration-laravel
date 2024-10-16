@@ -77,4 +77,49 @@ class VaccinationRegistrationTest extends TestCase
 
         $response->assertSessionHasErrors('email');
     }
+
+    /** @test */
+    public function it_fails_if_email_format_is_invalid()
+    {
+        VaccineCenter::factory()->create();
+
+        $response = $this->post(route('register.store'), [
+            'nid' => '1234567890',
+            'name' => 'Jane Doe',
+            'email' => 'invalid-email-format',
+            'vaccine_center_id' => 1,
+        ]);
+
+        $response->assertSessionHasErrors('email');
+    }
+
+    /** @test */
+    public function it_fails_if_nid_is_less_than_10_digits()
+    {
+        VaccineCenter::factory()->create();
+
+        $response = $this->post(route('register.store'), [
+            'nid' => '12345',
+            'name' => 'Jane Doe',
+            'email' => 'jane@example.com',
+            'vaccine_center_id' => 1,
+        ]);
+
+        $response->assertSessionHasErrors('nid');
+    }
+
+    /** @test */
+    public function it_fails_if_nid_contains_non_numeric_characters()
+    {
+        VaccineCenter::factory()->create();
+
+        $response = $this->post(route('register.store'), [
+            'nid' => '12345abcde',
+            'name' => 'Jane Doe',
+            'email' => 'jane@example.com',
+            'vaccine_center_id' => 1,
+        ]);
+
+        $response->assertSessionHasErrors('nid');
+    }
 }
