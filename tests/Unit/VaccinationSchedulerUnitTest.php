@@ -9,10 +9,10 @@ use Tests\TestCase;
 class VaccinationSchedulerUnitTest extends TestCase
 {
     /** @test */
-    public function it_returns_the_next_available_weekday_if_today_is_thursday()
+    public function it_returns_the_next_available_weekday_if_today_is_friday()
     {
         $scheduler = new VaccinationScheduler();
-        $date = Carbon::create(2024, 10, 10); // a thursday
+        $date = Carbon::create(2024, 10, 11); // a friday
 
         $nextAvailableDay = $this->invokeMethod($scheduler, 'getNextAvailableWeekday', [$date]);
 
@@ -20,10 +20,10 @@ class VaccinationSchedulerUnitTest extends TestCase
     }
 
     /** @test */
-    public function it_returns_the_next_available_weekday_if_today_is_friday()
+    public function it_returns_the_next_available_weekday_if_today_is_saturday()
     {
         $scheduler = new VaccinationScheduler();
-        $date = Carbon::create(2024, 10, 11); // a friday
+        $date = Carbon::create(2024, 10, 12); // a saturday
 
         $nextAvailableDay = $this->invokeMethod($scheduler, 'getNextAvailableWeekday', [$date]);
 
