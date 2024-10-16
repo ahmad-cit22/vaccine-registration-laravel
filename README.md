@@ -42,7 +42,6 @@ To run this project, you need to have the following installed:
 
    ```bash
    composer install
-   npm install
    ```
 
 3. **Set Up Environment File**
