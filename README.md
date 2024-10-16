@@ -2,15 +2,15 @@
 
 ![APP Screenshot](images/project-screenshot.png)
 
-A simple COVID vaccine registration system built using **Laravel 10**. This application allows users to register for the COVID vaccine, select a vaccination center, and check their vaccination status using their National ID (NID). Vaccination schedules are managed on a "first come, first serve" basis, and users are notified via email the night before their scheduled vaccination date.
+A simple COVID vaccine registration system built using the most popular PHP framework **Laravel**(v10). This application allows users to register for the COVID vaccine selecting a particular vaccination center and check their vaccination status using their National ID (NID) number. Vaccination schedules are managed on a "first come, first serve" basis, and users get notified via email when their vaccination gets scheduled & again notified at the night before their scheduled vaccination date.
 
 ## ✨ Features
 
 - **User Registration**: Users can register for the COVID vaccine and select their vaccination center.
 - **Vaccination Center Limits**: Each center has a daily limit of users it can serve, and the system distributes users based on availability.
-- **Vaccination Status**: Users can check their vaccination status by entering their NID.
-- **Email Notifications**: Users are notified via email the night before their scheduled vaccination date.
-- **AJAX-based Search**: The vaccination status search is done without page reload using AJAX for a better user experience.
+- **Vaccination Status**: Users can check their vaccination status by entering their NID number.
+- **Email Notifications**: Users get notified via email when their vaccination gets scheduled & again notified at the night before their scheduled vaccination date.
+- **Fetch API based Search**: The vaccination status searching system is designed to provide a seamless user experience by utilizing the fetch API for asynchronous requests, eliminating the need for page reloads.
 
 ---
 
@@ -55,7 +55,7 @@ To run this project, you need to have the following installed:
    Then, open the `.env` file and update the following configurations:
 
    - **Database**: Set up your database credentials (`DB_DATABASE`, `DB_USERNAME`, `DB_PASSWORD`).
-   - **Mail**: Configure your mail driver for sending emails. You can use services like Mailgun, SMTP, etc.
+   - **Mail**: Configure your mail driver for sending emails.
    - **APP_URL**: Set the app URL to your local development URL, e.g., `http://localhost:8000`.
 
 4. **Generate Application Key**
