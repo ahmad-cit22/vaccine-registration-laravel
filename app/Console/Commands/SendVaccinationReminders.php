@@ -15,15 +15,18 @@ class SendVaccinationReminders extends Command
 
     public function handle()
     {
-        $tomorrow = Carbon::now()->addDay()->toDateString();
+        try {
+            $tomorrow = Carbon::now()->addDay()->toDateString();
 
-        $vaccinations = Vaccination::where('scheduled_date', $tomorrow)->get();
+            $vaccinations = Vaccination::where('scheduled_date', $tomorrow)->get();
 
-        foreach ($vaccinations as $vaccination) {
-            $vaccination->user->notify(new VaccinationReminderNotification($vaccination));
+            foreach ($vaccinations as $vaccination) {
+                $vaccination->user->notify(new VaccinationReminderNotification($vaccination));
+            }
+
+            $this->info('Vaccination Reminders sent successfully.');
+        } catch (\Exception $e) {
+            $this->error('An error occurred while scheduling vaccinations: ' . $e->getMessage());
         }
-
-        $this->info('Vaccination Reminders sent successfully.');
     }
 }
-
