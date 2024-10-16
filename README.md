@@ -105,6 +105,42 @@ To run this project, you need to have the following installed:
 
 ---
 
+## 🧪 Tests
+
+This project includes various tests to ensure the correct & smooth functionality with reliability of the system. The implemented tests are mentioned below:
+
+### 1. VaccinationRegistrationTest
+- **Purpose:** Tests the vaccination registration process.
+- **Description:** Ensures that users can register for vaccination successfully with valid data and that appropriate validation messages are returned for invalid input.
+
+### 2. VaccinationSearchTest
+- **Purpose:** Tests the vaccination status checking/searching functionality.
+- **Description:** Verifies that users can search for their vaccination status using their respective NID. It checks the correct responses for registered, scheduled and non-registered users.
+
+### 3. VaccinationSchedulerTest
+- **Purpose:** Tests the scheduling of vaccinations.
+- **Description:** Validates that the `VaccinationScheduler` service schedules vaccinations correctly for the next available weekday while adhering to the daily limit set for each vaccine center. It also checks if the notification is sent properly to users when scheduled.
+
+### 4. VaccinationReminderTest
+- **Purpose:** Tests the sending of vaccination reminders.
+- **Description:** Checks that reminder notifications are sent to users whose vaccinations are scheduled for the next day.
+
+### 5. CommandsTest
+- **Purpose:** Tests the command-line functionalities for scheduling vaccinations and sending reminders.
+- **Description:** Ensures that the artisan commands run successfully and perform the expected operations without errors.
+
+### 6. VaccinationSchedulerUnitTest
+- **Purpose:** Tests the private method of the `VaccinationScheduler` service.
+- **Description:** Validates the logic for finding the next available weekday, ensuring it correctly skips the weekends.
+
+### Running Tests
+To run the provided tests, you can use the following command:
+
+```bash
+php artisan test
+```
+---
+
 ## 📈 Future Enhancements
 
 If an additional requirement for sending SMS notifications along with the email notifications is introduced, the following changes would be required:
