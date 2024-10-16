@@ -38,7 +38,7 @@ To run this project, you need to have the following installed:
 
 2. **Install Dependencies**
 
-   Run the following commands to install all the project dependencies:
+   Run the following command to install all the project dependencies:
 
    ```bash
    composer install
